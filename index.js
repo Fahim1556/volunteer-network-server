@@ -48,7 +48,7 @@ client.connect(err => {
       .then(result=>res.send(result))
     })
 
-    app.get("/users",(req,res) => {
+    app.get("/allUser",(req,res) => {
       userCollection.find({})
       .toArray((err,documnets)=>res.send(documnets))
     })
