@@ -14,7 +14,7 @@ require('dotenv').config()
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mx72a.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true})
 client.connect(err => {
-  const taskCollection = client.db(process.env.DB_NAME).collection("volunteer-tasks")
+  const taskCollection = client.db(process.env.DB_NAME).collection("services")
    
   const userCollection = client.db(process.env.DB_NAME).collection("user-tasks")
 
@@ -50,7 +50,7 @@ client.connect(err => {
 
     app.get("/allUser",(req,res) => {
       userCollection.find({})
-      .toArray((err,documnets)=>res.send(documnets))
+      .toArray((err,documnets)=>res.send(documnets)) 
     })
 
 
